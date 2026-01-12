@@ -1,0 +1,14 @@
+{
+    "name": "showcase",
+    "private": true,
+    "devDependencies": {
+        "@tailwindcss/cli": "^4.1.18",
+        "rimraf": "^6.1.2"
+    },
+    "scripts": {
+        "clean": "rimraf dist",
+        "copy": "cp -r src/* dist/",
+        "build:css": "tailwindcss -i src/assets/css/input.css -o dist/assets/css/output.css",
+        "build": "npm run clean && npm run build:css && npm run copy"
+    }
+}

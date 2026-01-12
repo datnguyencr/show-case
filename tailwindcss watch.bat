@@ -1,0 +1,1 @@
+npm exec @tailwindcss/cli -- -i src/assets/css/input.css -o src/assets/css/site.css --watch

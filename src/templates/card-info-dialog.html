@@ -1,0 +1,40 @@
+<template>
+    <div
+        id="cardInfoDialog"
+        class="fixed inset-0 hidden bg-black/70 z-50 flex items-center justify-center p-4"
+    >
+        <div
+            class="bg-gray-800 rounded-xl relative overflow-hidden w-full max-w-[640px] flex flex-col sm:flex-row"
+        >
+            <!-- Close button -->
+            <button
+                id="modalClose"
+                class="absolute top-2 right-2 z-10 text-gray-300 hover:text-white text-xl"
+            >
+                &times;
+            </button>
+
+            <!-- Image (LEFT) -->
+            <div class="flex-shrink-0">
+                <img
+                    id="modalImage"
+                    class="w-[421px] h-[614px] object-cover"
+                    src=""
+                    alt=""
+                />
+            </div>
+
+            <!-- Info (RIGHT) -->
+            <div class="p-4 flex flex-col gap-2">
+                <h2 id="modalName" class="text-lg font-bold text-white"></h2>
+
+                <p id="modalCategory" class="text-sm text-gray-400"></p>
+
+                <p
+                    id="modalDescription"
+                    class="text-sm text-gray-200 leading-relaxed"
+                ></p>
+            </div>
+        </div>
+    </div>
+</template>
