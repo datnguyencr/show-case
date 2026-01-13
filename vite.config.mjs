@@ -3,17 +3,15 @@ import { resolve } from "path";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
+    base: "/showcase/",
+
     root: "src",
     plugins: [
         viteStaticCopy({
             targets: [
                 {
-                    src: "assets/img/**/*", // copy all images
-                    dest: "assets/img",
-                },
-                {
-                    src: "assets/fonts/**/*", // optional fonts
-                    dest: "assets/fonts",
+                    src: "assets/images/**/*",
+                    dest: "assets/images",
                 },
             ],
         }),
