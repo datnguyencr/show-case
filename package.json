@@ -1,8 +1,8 @@
 {
     "scripts": {
         "clean": "rimraf dist",
-        "copy": "cpx \"src/**/*\" dist",
-        "build:css": "tailwindcss -i src/assets/css/input.css -o dist/assets/css/site.css",
+        "copy": "npx cpx \"src/**/*\" dist",
+        "build:css": "npx tailwindcss -i src/assets/css/input.css -o dist/assets/css/site.css",
         "build": "npm run clean && npm run build:css && npm run copy"
     },
     "devDependencies": {
