@@ -2,12 +2,16 @@
     "scripts": {
         "clean": "rimraf dist",
         "copy": "npx cpx \"src/**/*\" dist",
-        "build:css": "npx tailwindcss -i src/assets/css/input.css -o dist/assets/css/site.css",
+        "build:css": "npx tailwindcss -i src/assets/css/input.css -o dist/assets/css/site.css --minify",
+        "build:js": "esbuild src/assets/js/**/*.js --minify --outbase=src --outdir=dist",
+        "build:html": "html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true --input-dir src --output-dir dist",
         "build": "npm run clean && npm run build:css && npm run copy"
     },
     "devDependencies": {
         "@tailwindcss/cli": "^4.1.18",
-        "rimraf": "^6.0.0",
-        "cpx": "^1.5.0"
+        "cpx": "^1.2.1",
+        "esbuild": "^0.27.2",
+        "html-minifier-terser": "^7.2.0",
+        "rimraf": "^6.0.0"
     }
 }

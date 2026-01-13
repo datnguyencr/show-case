@@ -4,6 +4,11 @@ name: Deploy static content to Pages
 on:
     push:
         branches: ["main"]
+        paths:
+            - "src/**"
+            - "package.json"
+            - "package-lock.json"
+            - ".github/workflows/**"
     workflow_dispatch:
 
 permissions:
