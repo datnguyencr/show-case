@@ -1,12 +1,13 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import { viteStaticCopy } from "vite-plugin-static-copy";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
     base: "/show-case/",
-
     root: "src",
     plugins: [
+        tailwindcss(),
         viteStaticCopy({
             targets: [
                 {
