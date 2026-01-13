@@ -14,6 +14,10 @@ export default defineConfig({
                     src: "assets/images/**/*",
                     dest: "assets/images",
                 },
+                {
+                    src: "templates/**/*.html",
+                    dest: "templates",
+                },
             ],
         }),
     ],
