@@ -1,0 +1,50 @@
+import { defineConfig } from "vite";
+import { resolve } from "path";
+import { viteStaticCopy } from "vite-plugin-static-copy";
+
+export default defineConfig({
+    root: "src",
+    plugins: [
+        viteStaticCopy({
+            targets: [
+                {
+                    src: "assets/img/**/*", // copy all images
+                    dest: "assets/img",
+                },
+                {
+                    src: "assets/fonts/**/*", // optional fonts
+                    dest: "assets/fonts",
+                },
+            ],
+        }),
+    ],
+    build: {
+        outDir: "../dist",
+        emptyOutDir: true,
+        minify: "esbuild",
+        rollupOptions: {
+            input: {
+                main: resolve(__dirname, "src/index.html"),
+                newCard: resolve(__dirname, "src/new-card.html"),
+                publicCollection: resolve(
+                    __dirname,
+                    "src/public-collection.html"
+                ),
+                settings: resolve(__dirname, "src/settings.html"),
+            },
+            output: {
+                // JS chunks and entries go to assets/js
+                chunkFileNames: "assets/js/[name]-[hash].js",
+                entryFileNames: "assets/js/[name]-[hash].js",
+                // CSS files go to assets/css
+                assetFileNames: (assetInfo) => {
+                    if (assetInfo.name && assetInfo.name.endsWith(".css")) {
+                        return "assets/css/[name]-[hash][extname]";
+                    }
+                    // other assets (images/fonts) stay in their folder
+                    return "assets/[name]-[hash][extname]";
+                },
+            },
+        },
+    },
+});
