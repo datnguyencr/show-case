@@ -1,4 +1,4 @@
-import * as Utils from "./utils.a36cfcb5.js";
+import * as Utils from "./utils.js";
 // After generating cards
 function setupCardModal() {
     const modal = document.getElementById("cardInfoDialog");

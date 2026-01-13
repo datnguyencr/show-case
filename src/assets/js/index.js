@@ -1,4 +1,4 @@
-import * as Utils from "./utils.a36cfcb5.js";
+import * as Utils from "./utils.js";
 function animateRow(rowId, direction = "ltr", pxPerSecond = 150) {
     const row = document.getElementById(rowId);
     const wrapperWidth = row.parentNode.offsetWidth;
@@ -33,8 +33,8 @@ function animateRow(rowId, direction = "ltr", pxPerSecond = 150) {
     loop();
 }
 document.addEventListener("DOMContentLoaded", () => {
-    const row1Images = Array(10).fill("assets/images/cards/default.avif");
-    const row2Images = Array(10).fill("assets/images/cards/default.avif");
+    const row1Images = Array(10).fill("images/cards/default.avif");
+    const row2Images = Array(10).fill("images/cards/default.avif");
 
     function populateRow(rowId, images, repeat = 10) {
         const row = document.getElementById(rowId);
