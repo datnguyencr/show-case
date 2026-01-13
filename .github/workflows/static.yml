@@ -8,6 +8,7 @@ on:
             - "src/**"
             - "package.json"
             - "package-lock.json"
+            - "vite.config.*"
             - ".github/workflows/**"
     workflow_dispatch:
 
@@ -18,41 +19,41 @@ permissions:
 
 concurrency:
     group: "pages"
-    cancel-in-progress: false
+    cancel-in-progress: true
 
 jobs:
     deploy:
+        runs-on: ubuntu-latest
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
-        runs-on: ubuntu-latest
 
         steps:
-            # 1. Checkout repo
-            - name: Checkout
+            # 1. Checkout
+            - name: Checkout repository
               uses: actions/checkout@v4
 
-            # 2. Setup Node (required for Tailwind build)
-            - name: Setup Node
+            # 2. Setup Node
+            - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
                   node-version: 20
-                  cache: "npm"
+                  cache: npm
 
-            # 3. Install deps
+            # 3. Install deps (reproducible)
             - name: Install dependencies
               run: npm ci
 
-            # 4. Build static site (Tailwind + copy assets)
+            # 4. Build (Vite -> dist/)
             - name: Build
               run: npm run build
 
-            # 5. Setup GitHub Pages
+            # 5. Configure Pages
             - name: Setup Pages
               uses: actions/configure-pages@v5
 
-            # 6. Upload dist/ ONLY
-            - name: Upload artifact
+            # 6. Upload dist only
+            - name: Upload Pages artifact
               uses: actions/upload-pages-artifact@v3
               with:
                   path: dist

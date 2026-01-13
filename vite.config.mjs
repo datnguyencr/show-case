@@ -3,7 +3,7 @@ import { resolve } from "path";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
-    base: "/showcase/",
+    base: "/show-case/",
 
     root: "src",
     plugins: [
