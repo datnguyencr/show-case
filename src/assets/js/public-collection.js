@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         filteredCards.forEach((card) => {
             const clone = template.content.cloneNode(true);
             clone.querySelector(".item-image").src =
-                "assets/images/cards/default.avif";
+                "images/cards/default.avif";
             clone.querySelector(".item-image").alt = card.name;
             clone.querySelector(".item-name").textContent = card.name;
             clone.querySelector(".item-category").textContent = card.category;
